@@ -32,7 +32,34 @@ Este projeto é uma aplicação Spring Boot que gerencia usuários e departament
 
 - **POST**: Insere um novo usuário. A associação com um departamento é opcional.
 
+
+## Configuração do projeto
+
+As configurações da aplicação estão no arquivo `application.properties`. Nele, é possível encontrar as configurações do banco de dados H2, a habilitação do console H2 e as configurações do Hibernate para mostrar as consultas SQL.
+
+properties
+spring.datasource.url =jdbc:h2:mem:testdb
+
+spring.datasource.username = sa
+
+spring.datasource.password = 12345
+
+spring.h2.console.enabled = true
+
+spring.h2.console.path = /h2-console
+
+spring.jpa.show-sql = true
+
+spring.jpa.properties.hibernate.format_sql = true
+
+
+## Execução do projeto
+
+Para executar o projeto, execute o método main da classe UsuariodeptoApplication. A aplicação iniciará e estará disponível no endereço http://localhost:8080. Para acessar o console H2, acesse http://localhost:8080/h2-console.
+
+
 ## Exemplo de uso
+Para recuperar os usuários, faça uma requisição GET para `/users`.
 
 Para inserir um novo usuário, faça uma requisição POST para `/users` com o seguinte JSON no corpo da requisição:
 
@@ -45,24 +72,3 @@ Para inserir um novo usuário, faça uma requisição POST para `/users` com o s
     "name": "Tecnologia da Informação"
   }
 }
-
-
-## Configuração do projeto
-
-As configurações da aplicação estão no arquivo `application.properties`. Nele, é possível encontrar as configurações do banco de dados H2, a habilitação do console H2 e as configurações do Hibernate para mostrar as consultas SQL.
-
-```properties
-spring.datasource.url =jdbc:h2:mem:testdb
-spring.datasource.username = sa
-spring.datasource.password = 12345
-
-spring.h2.console.enabled = true
-spring.h2.console.path = /h2-console
-
-spring.jpa.show-sql = true
-spring.jpa.properties.hibernate.format_sql = true
-
-
-## Execução do projeto
-
-Para executar o projeto, execute o método main da classe UsuariodeptoApplication. A aplicação iniciará e estará disponível no endereço http://localhost:8080. Para acessar o console H2, acesse http://localhost:8080/h2-console.
